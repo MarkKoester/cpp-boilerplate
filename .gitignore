@@ -1,0 +1,12 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# VSCode cache
+.vscode/ipch
+
+build
+**/*.log
+**/.DS_STORE

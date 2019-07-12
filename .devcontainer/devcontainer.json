@@ -1,0 +1,15 @@
+{
+    "name": "Dev Container",
+    "dockerFile": "Dockerfile",
+    "context": "..",
+    "runArgs": [
+        "-v",
+        "/Users/mkoest11/.ssh/:/root/.ssh/",
+        "--security-opt",
+        "seccomp=unconfined",
+        "--security-opt",
+        "apparmor=unconfined",
+        "--cap-add", "SYS_PTRACE",
+    ],
+    "extensions": ["ms-vscode.cpptools", "twxs.cmake", "editorconfig.editorconfig"],
+}
