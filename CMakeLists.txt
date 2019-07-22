@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(TileTransfer)
 include(FetchContent)
+include(CTest)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -10,11 +11,19 @@ FetchContent_Declare(
   GIT_TAG v1.x
 )
 
-FetchContent_MakeAvailable(spdlog)
+FetchContent_Declare(
+  catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG master
+)
+
+FetchContent_MakeAvailable(spdlog catch2)
 
 # Compiler warning flags for Clang and GCC
-set(${COMPILE_WARNINGS} $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall>
-                        $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wextra>
-   )
+set(${COMPILE_WARNINGS}
+    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall>
+    $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wextra>
+)
 
 add_subdirectory(src)
+add_subdirectory(test)

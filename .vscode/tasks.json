@@ -15,7 +15,7 @@
         {
             "label": "CMake",
             "type": "shell",
-            "command": "cmake -B build -S .",
+            "command": "cmake -B build -S . -DCMAKE_BUILD_TYPE=Debug",
             "runOptions": {
                 "runOn": "folderOpen"
             }

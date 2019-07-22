@@ -1,2 +1,3 @@
 add_executable(app main.cpp)
-target_link_libraries(app spdlog)
+add_subdirectory(lib)
+target_link_libraries(app spdlog lib)
